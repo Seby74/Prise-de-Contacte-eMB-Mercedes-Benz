@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire Prospect</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; }
+    form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+    button { background-color: #25D366; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+    button:hover { background-color: #1ebe5d; }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Formulaire de contact</h2>
+
+<form id="contact-form">
+  <input type="text" id="nom" placeholder="Nom" required>
+  <input type="text" id="prenom" placeholder="Prénom" required>
+  <input type="text" id="adresse" placeholder="Adresse" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="tel" id="telephone" placeholder="Téléphone" required>
+  <input type="text" id="vehicule" placeholder="Véhicule possédé" required>
+  <input type="text" id="immatriculation" placeholder="Immatriculation" required>
+  <input type="number" id="kilometrage" placeholder="Kilométrage" required>
+  <button type="button" onclick="envoyerWhatsApp()">Envoyer via WhatsApp</button>
+</form>
+
+<script>
+  function envoyerWhatsApp() {
+    const nom = document.getElementById("nom").value;
+    const prenom = document.getElementById("prenom").value;
+    const adresse = document.getElementById("adresse").value;
+    const email = document.getElementById("email").value;
+    const telephone = document.getElementById("telephone").value;
+    const vehicule = document.getElementById("vehicule").value;
+    const immatriculation = document.getElementById("immatriculation").value;
+    const kilometrage = document.getElementById("kilometrage").value;
+
+    const message = `Bonjour, voici mes informations :%0A` +
+      `Nom : ${nom}%0A` +
+      `Prénom : ${prenom}%0A` +
+      `Adresse : ${adresse}%0A` +
+      `Email : ${email}%0A` +
+      `Téléphone : ${telephone}%0A` +
+      `Véhicule : ${vehicule}%0A` +
+      `Immatriculation : ${immatriculation}%0A` +
+      `Kilométrage : ${kilometrage}`;
+
+    const lien = "https://wa.me/33680050285?text=" + encodeURI(message);
+    window.open(lien, "_blank");
+  }
+</script>
+
+</body>
+</html>
